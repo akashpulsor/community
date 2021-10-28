@@ -1,7 +1,7 @@
 import { TouchableOpacity, TextInput, View, StyleSheet, Text} from "react-native";
 import React from "react";
 import colors from "../constants/colors";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+             
 const styles = StyleSheet.create({
     loginbutton:{
         marginRight:40,
