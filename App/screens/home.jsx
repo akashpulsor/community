@@ -62,6 +62,7 @@ export default () => {
                 <Image 
                     source={require('../assets/images/icon.png')}/>  
             </View>
+            
             <LoginInput email="abc@email.com" password="******"/>
 
         </SafeAreaView>
