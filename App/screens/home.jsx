@@ -4,6 +4,8 @@ import React from "react";
 import { TouchableOpacity, View,Text, SafeAreaView,StyleSheet,Image, Dimensions } from "react-native";
 import colors from "../constants/colors";
 
+import { LoginInput } from "../components/loginInput";
+
 const screen = Dimensions.get('window');
 
 
@@ -35,13 +37,17 @@ const styles  = StyleSheet.create(
         },
 
         LogoArea:{
-            height:screen.height *.25,
-            width:screen.width *.25,
-            paddingVertical:screen.height *.25,
+            paddingVertical:15,
+            //borderWidth:20,
+            alignItems: 'center',
+
         }
         ,
         Logo:{
-            justifyContent:"center"
+            width: '100%',
+            height: undefined,
+            flex:1,
+            aspectRatio: 1,
         }
 
     }
@@ -53,10 +59,10 @@ export default () => {
             <StatusBar style="light"  barStyle="dark-content" backgroundColor={colors.homescreenbackground}/>
 
             <View style={styles.LogoArea}>
-                <Image style={styles.Logo}
+                <Image 
                     source={require('../assets/images/icon.png')}/>  
             </View>
-            
+            <LoginInput email="abc@email.com" password="******"/>
 
         </SafeAreaView>
     );
