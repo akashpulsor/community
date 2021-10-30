@@ -16,9 +16,6 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
         fontSize:18
     },
-    signInbutton:{
-
-    },
     textInput:{
         color:colors.white,
         textAlign:'center',
@@ -58,7 +55,7 @@ const styles = StyleSheet.create({
 
 });
 //bug screen movement on focus
-export const LoginInput = ({email,password}) => {
+export const LoginInput = ({email,password,navigation}) => {
     return (
         <View >
             <View>
@@ -68,11 +65,15 @@ export const LoginInput = ({email,password}) => {
             </View>
             <View style={styles.containerSeparator}/>
             <View>
-                <TouchableOpacity style={styles.loginbutton}>
+                <TouchableOpacity style={styles.loginbutton}
+                onPress={() =>navigation.push('DashBoard')}
+                >
                     <Text style={styles.textInput}>Login</Text>
                 </TouchableOpacity>
                 <View style={styles.textBoxSeparator}/>
-                <TouchableOpacity style={styles.loginbutton}>
+                <TouchableOpacity style={styles.loginbutton}
+                onPress={() =>navigation.push('Name')}
+                >
                     <Text style={styles.textInput}>Create Account</Text>
                 </TouchableOpacity>
             </View>

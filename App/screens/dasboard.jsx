@@ -4,8 +4,6 @@ import React from "react";
 import { TouchableOpacity, View,Text, SafeAreaView,StyleSheet,Image, Dimensions } from "react-native";
 import colors from "../constants/colors";
 
-import { LoginInput } from "../components/loginInput";
-
 const screen = Dimensions.get('window');
 
 
@@ -48,16 +46,14 @@ const styles  = StyleSheet.create(
 
 export default ({navigation}) => {
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView >
             <StatusBar style="light"  barStyle="dark-content" backgroundColor={colors.homescreenbackground}/>
 
-            <View style={styles.LogoArea}>
-                <Image 
-                    source={require('../assets/images/icon.png')}/>  
+            <View>
+                <Text>Dashboard</Text>
             </View>
             
-            <LoginInput email="abc@email.com" password="******" navigation={navigation}/>
-
+            
         </SafeAreaView>
     );
 
