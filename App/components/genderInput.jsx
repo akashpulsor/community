@@ -5,50 +5,7 @@ import React, { useState } from 'react';
 import RadioGroup from 'react-native-radio-buttons-group';
 
 const styles = StyleSheet.create({
-    loginbutton:{
-        marginRight:40,
-        marginLeft:40,
-        marginTop:10,
-        paddingTop:5,
-        paddingBottom:5 ,
-        backgroundColor: colors.homescreenbackground,
-        borderRadius:10,
-        borderWidth: 1,
-        borderColor: colors.white,
-        fontWeight:"bold",
-        fontSize:18
-    },
-    textInput:{
-        color:colors.white,
-        textAlign:'center',
-
-        padding : 10,
-        padding : 10,
-        fontSize:18,
-        fontWeight:"bold"
-    },
-    container:{
-        color: colors.white
-    },
-    containerSeparator:{
-        backgroundColor: colors.homescreenbackground,
-        paddingTop:80,
-        paddingBottom:100,
-        marginLeft:20
-    },
-    datePickerConatiner:{
-        marginRight:40,
-        marginLeft:40,
-        marginTop:10,
-        paddingTop:5,
-        paddingBottom:5 ,
-        backgroundColor: colors.homescreenbackground,
-        borderRadius:10,
-        borderWidth: 1,
-        borderColor: colors.homescreenbackground,
-        fontWeight:"bold",
-        fontSize:18
-    }
+    
 });
 
 const radioButtonsData = [{

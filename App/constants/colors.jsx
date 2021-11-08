@@ -6,6 +6,6 @@ export default {
     loginButtonColor:"#FFFFFF",
     signInButtonColor:"#FFFFFF",
     white:"#FFFFFF",
-    dodgerblue:"#1e90ff"
-
+    dodgerblue:"#1e90ff",
+    purple:"#880ED4"
 }
