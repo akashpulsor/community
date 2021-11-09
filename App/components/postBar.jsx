@@ -4,6 +4,8 @@ import { Constants } from 'expo';
 import { TouchableOpacity, View,Text, SafeAreaView,StyleSheet,Image, Dimensions,TextInput } from "react-native";
 import colors from "../constants/colors";
 
+const screen = Dimensions.get('window');
+
 const styles  = StyleSheet.create(
     {
         container :{
@@ -57,7 +59,7 @@ const styles  = StyleSheet.create(
               borderRightColor: colors.purple ,
               backgroundColor: colors.homescreenbackground,
               height:60,
-              width:300
+              width:'70%'
         },
         upiButton: {
             justifyContent:"flex-start",
@@ -67,11 +69,11 @@ const styles  = StyleSheet.create(
             backgroundColor: colors.purple,
             borderColor:colors.purple,
             height:60,
-            width:50
+            width: '15%'
       }
         ,
         profileImage:{
-            width: 60, 
+            width: '15%', 
             height: 60, 
             borderRadius: 60/ 2
         },
@@ -103,6 +105,7 @@ export const PostBar = ({navigation}) =>  {
 
     return (
         <View style = {styles.top}>
+            
         <Image 
             source={{
                 uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png'}} 
