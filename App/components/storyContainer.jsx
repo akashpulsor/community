@@ -4,9 +4,10 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
-  View,
-  WebView
+  View
 } from 'react-native';
+
+import {WebView} from 'react-native-webview';
 import Modal from 'react-native-modalbox';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import Story from './story';

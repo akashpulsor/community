@@ -16,7 +16,7 @@ import {
 
 import Feed from "../components/feed";
 import { PostBar } from "../components/postBar";
-import NewsFeed from "../components/newsFeed";
+import NewsFeed from "./newsFeed";
 
 import Stories from "./stories";
 

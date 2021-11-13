@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@react-native-community/datetimepicker": "3.5.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.0.6",
@@ -21,9 +22,11 @@
     "react-native": "0.64.2",
     "react-native-3dcube-navigation": "^1.0.4",
     "react-native-date-picker": "^4.1.1",
+    "react-native-element-dropdown": "^1.4.6",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-insta-story": "^1.1.1",
+    "react-native-material-dropdown": "^0.11.1",
     "react-native-modal-datetime-picker": "^13.0.0",
     "react-native-multi-toggle-switch": "^1.1.1",
     "react-native-paper": "^4.9.2",
