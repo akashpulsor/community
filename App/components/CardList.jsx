@@ -20,8 +20,12 @@ export default class CardList extends Component {
         ).isRequired,
         onPressComments: PropTypes.func.isRequired
     };
-
+    
+    getTitltFromId = ({id}) =>{
+        
+    }
     renderItem = ({ item: { id, author } }) => {
+
         const { commentsForItem, onPressComments } = this.props;
         const comments = commentsForItem[id];
 
@@ -31,12 +35,13 @@ export default class CardList extends Component {
                 image={{
                     uri: getImageFromId(id)
                 }}
-                //get it from function
                 likesForItem={10}
                 sharesForItem={20}
                 savesForItem={30}
-                linkText={`${comments ? comments.length : 0} Comments`}
+                linkText={`${comments ? comments.length : 0}`}
                 onPressLinkText={() => onPressComments(id)}
+                title='test'
+                data='test'
             />
         );
     }

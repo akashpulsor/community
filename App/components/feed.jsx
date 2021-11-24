@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 const stories = [
 
-];
+  ];
 
   const Item = ({ title }) => (
     <View style={styles.item}>

@@ -12,9 +12,7 @@ import getAvatarColor from '../util/getAvatarColor';
 import getInitials from '../util/getInitials';
 
 export default function AuthorRow({
-    fullname,
-    linkText,
-    onPressLinkText
+    fullname
 }) {
     return (
         <View style={styles.container}>
@@ -24,15 +22,13 @@ export default function AuthorRow({
                 backgroundColor={getAvatarColor(fullname)}
             />
             <Text style={styles.text} numberOfLines={1}>{fullname}</Text>
-
+    
         </View>
     );
 };
 
 AuthorRow.propTypes = {
     fullname: PropTypes.string.isRequired,
-    linkText: PropTypes.string.isRequired,
-    onPressLinkText: PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
@@ -40,7 +36,7 @@ const styles = StyleSheet.create({
         height: 50,
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
     text: {
         flex: 1,

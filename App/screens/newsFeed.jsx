@@ -66,6 +66,7 @@ export default class NewsFeed extends React.Component {
         ASYNC_STORAGE_COMMENTS_KEY,
         JSON.stringify(updated)
       );
+      console.log(selectedItemId);
     } catch (e) {
       console.log(
         'Failed to save comment',

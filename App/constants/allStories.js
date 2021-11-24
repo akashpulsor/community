@@ -1,3 +1,6 @@
+
+
+///TO make srtories dynamic create an event listener and hooks which continuoulsy updates this variable
 const stories = [
     {
       username: 'Amit',

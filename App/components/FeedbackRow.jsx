@@ -18,7 +18,6 @@ export default function FeedBackRow({
     likesForItem,
     sharesForItem,
     savesForItem,
-    commentsForItem,
     linkText,
     onPressLinkText
 
@@ -35,58 +34,58 @@ export default function FeedBackRow({
         <View style={styles.feedbackContainer}>
             <View style={styles.feedbackBar}>
                 <View style={styles.heartIconFlex}>
-                        <TouchableOpacity onPress={()=>{ }}>
-                            <Image
-                                //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
-                                source= {require('../assets/images/heart-outline.png')}
-                                style={styles.heartIcon}
-                                resizeMode="cover"
-                                />
-                        </TouchableOpacity>
-                </View>
+                            <TouchableOpacity onPress={()=>{ }}>
+                                <Image
+                                    //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
+                                    source= {require('../assets/images/heart-outline.png')}
+                                    style={styles.heartIcon}
+                                    resizeMode="cover"
+                                    />
+                            </TouchableOpacity>
+                    </View>
 
-                <View  style={styles.commentIconFlex}>
-                        {!!linkText && (
-                                                    <TouchableOpacity onPress={onPressLinkText} >
-                                                    <Image
-                                                        ///Users/user/react-tutorial/v6/community/App/assets save-filled
-                                                        //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
-                                                        source= {require('../assets/images/comment-outline.png')}
-                                                        //source= {require('../assets/images/save-outline.png')}
-                                                        style={styles.saveIcon}
-                                                        resizeMode="contain"
-                                                        />
-                                                        
-                                                </TouchableOpacity>
-                        )}
+                    <View  style={styles.commentIconFlex}>
+                            {!!linkText && (
+                                                        <TouchableOpacity onPress={onPressLinkText} >
+                                                        <Image
+                                                            ///Users/user/react-tutorial/v6/community/App/assets save-filled
+                                                            //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
+                                                            source= {require('../assets/images/comment-outline.png')}
+                                                            //source= {require('../assets/images/save-outline.png')}
+                                                            style={styles.saveIcon}
+                                                            resizeMode="contain"
+                                                            />
+                                                            
+                                                    </TouchableOpacity>
+                            )}
 
-                </View>
-                <View  style={styles.shareIconFlex}>
+                    </View>
+                    <View  style={styles.shareIconFlex}>
+                                <TouchableOpacity onPress={()=>{ }} >
+                                    <Image
+                                        ///Users/user/react-tutorial/v6/community/App/assets save-filled
+                                        //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
+                                        source= {require('../assets/images/share-outline.png')}
+                                        //source= {require('../assets/images/save-outline.png')}
+                                        style={styles.saveIcon}
+                                        resizeMode="contain"
+                                        />
+                                </TouchableOpacity>  
+                    </View>
+
+
+                    <View  style={styles.saveIconFlex}>
                             <TouchableOpacity onPress={()=>{ }} >
                                 <Image
                                     ///Users/user/react-tutorial/v6/community/App/assets save-filled
                                     //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
-                                    source= {require('../assets/images/share-outline.png')}
+                                    source= {require('../assets/images/save-outline.png')}
                                     //source= {require('../assets/images/save-outline.png')}
                                     style={styles.saveIcon}
                                     resizeMode="contain"
                                     />
-                            </TouchableOpacity>  
-                </View>
-
-
-                <View  style={styles.saveIconFlex}>
-                        <TouchableOpacity onPress={()=>{ }} >
-                            <Image
-                                ///Users/user/react-tutorial/v6/community/App/assets save-filled
-                                //source={state.liked ? require('../assets/images/heart.png') : require('../assets/images/heart-outline.png')}
-                                source= {require('../assets/images/save-outline.png')}
-                                //source= {require('../assets/images/save-outline.png')}
-                                style={styles.saveIcon}
-                                resizeMode="contain"
-                                />
-                        </TouchableOpacity>                
-                </View>
+                            </TouchableOpacity>                
+                    </View>
 
             </View>
             <View style={styles.feedbackNumberBar}>
@@ -117,7 +116,7 @@ FeedBackRow.propTypes = {
     likesForItem: PropTypes.number.isRequired,
     sharesForItem: PropTypes.number.isRequired,
     savesForItem:  PropTypes.number.isRequired,
-    commentsForItem:  PropTypes.number.isRequired,
+
     linkText: PropTypes.string.isRequired,
     onPressLinkText: PropTypes.func.isRequired
 }
@@ -136,34 +135,19 @@ const styles = StyleSheet.create({
     feedbackBar:{
         width: '100%',
         height: '10%',
-        bottom: 0,
-        position: 'absolute',
-        flex:1,
-        justifyContent:"flex-end",
-        borderBottomEndRadius:20,
-        borderBottomLeftRadius:20,
-        borderBottomRightRadius:20,
+        flex:3,
         flexDirection:"row",
-        marginBottom:"3%"
+
     },
     feedbackNumberBar:{
         width: '100%',
-        height: '4%',
-        bottom: 0,
-        position: 'absolute',
         flex:1,
-        justifyContent:"flex-end",
-        borderBottomEndRadius:20,
-        borderBottomLeftRadius:20,
-        borderBottomRightRadius:20,
         flexDirection:"row"
     },
     feedbackContainer:{
         width: '100%',
-        height: '10%',
-        bottom: 0,
         flex:1,
-        justifyContent:"space-around",
+        justifyContent:"space-evenly",
         borderBottomEndRadius:20,
         borderBottomLeftRadius:20,
         borderBottomRightRadius:20,
@@ -178,7 +162,7 @@ const styles = StyleSheet.create({
         height: 40,
     },
     heartIconFlex:{
-        bottom: 0,
+        marginTop:'15%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft:20,
@@ -192,42 +176,39 @@ const styles = StyleSheet.create({
         width:Dimensions.get('window').width/4
     },
     commentIconFlex:{
-        bottom: 0,
+        marginTop:'15%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft:20,
         width:Dimensions.get('window').width/4
     },
     commentIconNumberFlex:{
-        bottom: 0,
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft:20,
         width:Dimensions.get('window').width/4
     },
     shareIconFlex:{
-        bottom: 0,
+        marginTop:'15%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft:20,
         width:Dimensions.get('window').width/4
     },
     shareIconNumberFlex:{
-        bottom: 0,
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft:20,
         width:Dimensions.get('window').width/4
     },
     saveIconFlex:{
-        bottom: 0, 
+        marginTop:'15%',
         paddingLeft:20,
         flexDirection: 'row',
         justifyContent: "space-between",        
         width:Dimensions.get('window').width/4,
     },
     saveIconNumberFlex:{
-        bottom: 0, 
         paddingLeft:20,
         flexDirection: 'row',
         justifyContent: "space-between",        
