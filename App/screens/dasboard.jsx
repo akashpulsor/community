@@ -1,21 +1,9 @@
 import React from "react";
 import Constants from 'expo-constants';
+import { PlusCircleOutlined} from "@ant-design/icons";
 import { TouchableOpacity, View,Text, SafeAreaView,StyleSheet,Image, Dimensions,TextInput,StatusBar } from "react-native";
 import colors from "../constants/colors";
-import {
-    Avatar,
-    Button,
-    Card,
-    Title,
-    Paragraph,
-    List,
-    Headline,
-  } from 'react-native-paper';
 
-
-
-import Feed from "../components/feed";
-import { PostBar } from "../components/postBar";
 import NewsFeed from "./newsFeed";
 
 import Stories from "./stories";
@@ -48,10 +36,11 @@ const styles  = StyleSheet.create(
         },
         feedView: {
 
-            height:'87%',
+            height:'90%',
             justifyContent:"flex-start",
             flexDirection: "row",
-            backgroundColor: colors.homescreenbackground
+            backgroundColor: colors.homescreenbackground,
+            alignContent:"space-around"
         },
 
         dashBoardContainerSeparator:{
@@ -61,14 +50,17 @@ const styles  = StyleSheet.create(
         statusBarContainerSeparator:{
             backgroundColor: colors.homescreenbackground,
             height:10
+        },
+        postStyle:{
+            justifyContent:"center"
+            
         }
-
 
     }
 );
-console.disableYellowBox = true;
+
 export default ({navigation}) => {
-    const [text, onChangeText] = React.useState("Useless Text");
+
     return (
         <SafeAreaView style={styles.container} >
             <StatusBar style="light"   animated={true}  barStyle="light-content" backgroundColor={colors.homescreenbackground}/>
@@ -78,9 +70,10 @@ export default ({navigation}) => {
                 </View>
                 <View style={styles.feedView}>
                     <NewsFeed/>
+
                 </View>
             
-            
+
             
         </SafeAreaView>
     );

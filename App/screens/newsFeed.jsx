@@ -3,14 +3,20 @@ import {
   StyleSheet,
   View,
   Platform,
-  Modal,
-  AsyncStorage
+  AsyncStorage,
+  TouchableOpacity,
+  Text,
+  Modal
 } from 'react-native';
-import  Constants  from 'expo-constants';
 
+import  Constants  from 'expo-constants';
+import PropTypes from 'prop-types';
 import Feed from './Feed';
 import Comments from './Comments';
 import colors from '../constants/colors';
+
+
+
 
 const ASYNC_STORAGE_COMMENTS_KEY = 'ASYNC_STORAGE_COMMENTS_KEY';
 
@@ -18,7 +24,7 @@ export default class NewsFeed extends React.Component {
   state = {
     commentsForItem: {},
     showModal: false,
-    selectedItemId: null,
+    selectedItemId: null
 
   }
 
@@ -50,6 +56,8 @@ export default class NewsFeed extends React.Component {
     });
   }
 
+
+
   onSubmitComment = async text => {
     const { selectedItemId, commentsForItem } = this.state;
     const comments = commentsForItem[selectedItemId] || [];
@@ -78,29 +86,44 @@ export default class NewsFeed extends React.Component {
   }
 
   render() {
-    const { commentsForItem, showModal, selectedItemId} = this.state;
+    const { commentsForItem, showModal, selectedItemId,showPostModal} = this.state;
+
+    console.log("TEST");
+    console.log(showPostModal);
     return (
       <View style={styles.container}>
-          <Feed
-          style={styles.feed}
-          commentsForItem={commentsForItem}
-          onPressComments={this.openCommentSceen}
-        />
-        <Modal
-          visible={showModal}
-          animationType="slide"
-          onRequestClose={this.closeCommentScreen}
-        >
-          <Comments
-            style={styles.comments}
-            comments={commentsForItem[selectedItemId] || []}
-            onClose={this.closeCommentScreen}
-            onSubmitComment={this.onSubmitComment}
-          />
-        </Modal>
+          <View style={styles.feed}>
+              <Feed
+                style={styles.feedList}
+                commentsForItem={commentsForItem}
+                onPressComments={this.openCommentSceen}
+              />
+              <Modal
+                visible={showModal}
+                animationType="slide"
+                onRequestClose={this.closeCommentScreen}
+              >
+                <Comments
+                  style={styles.comments}
+                  comments={commentsForItem[selectedItemId] || []}
+                  onClose={this.closeCommentScreen}
+                  onSubmitComment={this.onSubmitComment}
+                />
+              </Modal>
+
+            </View>
+
+
+
+          
       </View>
+      
     );
   }
+}
+
+NewsFeed.propTypes = {
+  navigation: PropTypes.func.isRequired
 }
 
 const platformVersion =
@@ -112,6 +135,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.homescreenbackground,
+
     justifyContent: 'flex-start'
   },
   feed: {
@@ -119,6 +143,13 @@ const styles = StyleSheet.create({
     marginTop:
       Platform.OS === 'android' || platformVersion < 11
         ? Constants.statusBarHeight
+        : 0
+  },
+  feedList: {
+    flex: 1,
+    marginTop:
+      Platform.OS === 'android' || platformVersion < 11
+        ? Constants.statusBarHeight -50
         : 0
   },
   comments: {

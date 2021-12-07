@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     },
     article :{
         width: '100%',
-        flex: .8,
+        flex: 1,
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         borderBottomEndRadius:20,

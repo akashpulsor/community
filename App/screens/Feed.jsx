@@ -2,14 +2,21 @@ import {
     ActivityIndicator,
     Text,
     ViewPropTypes,
-    SafeAreaView
+    SafeAreaView,
+    StyleSheet,
+    Image,
+    View,
+    Modal
 } from 'react-native';
+import { Button, Overlay } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { fetchImages } from '../util/api';
 import CardList from '../components/CardList';
 
 import colors from '../constants/colors';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native';
 
 export default class Feed extends Component {
     static propTypes = {
@@ -17,7 +24,7 @@ export default class Feed extends Component {
         commentsForItem: PropTypes.objectOf(
             PropTypes.arrayOf(PropTypes.string)
         ).isRequired,
-        onPressComments: PropTypes.func.isRequired
+        onPressComments: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
@@ -30,6 +37,9 @@ export default class Feed extends Component {
         items: []
     }
 
+    closeOverLay(){
+        this.props.showPostModal=false;
+    }
     async componentDidMount() {
         try {
             const items = await fetchImages();
@@ -48,13 +58,12 @@ export default class Feed extends Component {
     }
 
     render() {
-        const { commentsForItem, onPressComments, style } = this.props;
+        const { commentsForItem, onPressComments, style,showPostModal } = this.props;
         const { loading, error, items } = this.state;
-        console.log(commentsForItem);
+        console.log(this.props);
 
         console.log("item");
 
-        console.log(items);
 
         if (loading) {
             return <ActivityIndicator size="large" />
@@ -66,13 +75,22 @@ export default class Feed extends Component {
         }
 
         return (
+            
             <SafeAreaView style={style}>
                 <CardList
                     items={items}
                     commentsForItem={commentsForItem}
                     onPressComments={onPressComments}
                 />
+            
             </SafeAreaView>
         );
     }
 };
+
+const styles  = StyleSheet.create(
+    {
+        
+
+    }
+);

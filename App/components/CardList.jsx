@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
+import { FlatList,View } from 'react-native';
 
 import { getImageFromId } from '../util/api';
 import Card from './Card';
@@ -50,12 +50,12 @@ export default class CardList extends Component {
         const { items, commentsForItem } = this.props;
 
         return (
-            <FlatList
+                <FlatList
                 data={items}
                 renderItem={this.renderItem}
                 keyExtractor={keyExtractor}
                 extraData={commentsForItem}
-            />
+                />
         );
     }
 };
