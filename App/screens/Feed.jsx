@@ -34,12 +34,22 @@ export default class Feed extends Component {
     state = {
         loading: true,
         error: false,
-        items: []
+        items: [],
+        showPostOverlay:false
     }
 
-    closeOverLay(){
-        this.props.showPostModal=false;
+    closeOverLay = ()=>{
+        this.setState({showPostOverlay:false});
     }
+
+    openOverLay = ()=>{
+        this.setState({showPostOverlay:true});
+    }
+
+    saveToData = () =>{
+        this.setState({showPostOverlay:false});
+    }
+
     async componentDidMount() {
         try {
             const items = await fetchImages();
@@ -82,7 +92,20 @@ export default class Feed extends Component {
                     commentsForItem={commentsForItem}
                     onPressComments={onPressComments}
                 />
-            
+                <Overlay  isVisible={this.state.showPostOverlay} onBackdropPress = {this.closeOverLay}  
+                    overlayStyle={styles.root}
+                >
+                    <View>
+
+                    </View>
+                    <ScrollView>
+
+                    </ScrollView>
+                    <Button title="Publish" containerStyle={{ height: '10%'}}
+                        buttonStyle={{ width: "20%",  borderRadius: 10,}}  onPress={this.saveToData}/>
+                </Overlay>
+                <Button title="Post" containerStyle={{ height: '12%', margin: 5}}
+                        buttonStyle={{ width: "100%",  borderRadius: 35,}}  onPress={this.openOverLay}/>
             </SafeAreaView>
         );
     }
@@ -90,7 +113,15 @@ export default class Feed extends Component {
 
 const styles  = StyleSheet.create(
     {
-        
+        root: {
+            flex: .8,
+            height:'100%',
+            width:'100%',
+            borderRadius:10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'yellow',
+          }
 
     }
 );

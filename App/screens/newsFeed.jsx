@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop:
       Platform.OS === 'android' || platformVersion < 11
-        ? Constants.statusBarHeight -50
+        ? Constants.statusBarHeight -70
         : 0
   },
   comments: {
